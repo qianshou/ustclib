@@ -34,7 +34,7 @@ php -S localhost:8050
 cd到node.js项目目录，然后执行
 
 ```
-npm install && node index.js
+npm install && npm start
 ```
 
 然后访问http://localhost:3000即可。
