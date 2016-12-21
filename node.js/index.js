@@ -17,8 +17,7 @@ http.createServer(function(req, res) {
             });
             req.on('end', function(){
                 postData = querystring.parse(post);
-                var obj = new CURL;
-                obj.http('http://opac.lib.ustc.edu.cn/reader/redr_verify.php',postData,function (body) {
+                CURL.http('http://opac.lib.ustc.edu.cn/reader/redr_verify.php',postData,function (body) {
                     res.write(body);
                     res.end();
                 });
@@ -26,8 +25,7 @@ http.createServer(function(req, res) {
             break;
         case 'img':
             //显示验证码
-            var obj = new IMGS;
-            obj.http('http://opac.lib.ustc.edu.cn/reader/captcha.php', function(data) {
+            IMGS.http('http://opac.lib.ustc.edu.cn/reader/captcha.php', function(data) {
                 res.writeHead(200, {"Content-Type": data.type});
                 res.write(data.body, "binary");
                 res.end();
